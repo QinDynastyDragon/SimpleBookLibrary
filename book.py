@@ -22,7 +22,16 @@ class Book:
 		# NOTE: "self" is not passed from outside.
 		
 
-	def get_str(self):
-		pass
-		# TODO: Return a string containing info of this book
-		# This is so that we can print list of books to the terminal.
+	def to_str(self):
+		'''Return a string containing info of this book'''
+		return str(self._id) + '\t' + self.name + '\t' + self.author + '\t' + self.genre
+		
+	def from_str(self, s):
+		'''
+		Extract info from a string, and assign the values to self. 
+		string format: <id>\t<name>\t<author>\t<genre>
+		'''
+		
+		# TODO: Create a book instance from string
+		# tips: 
+		# self._id = ....

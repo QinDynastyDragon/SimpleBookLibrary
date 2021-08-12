@@ -9,6 +9,6 @@ filename = 'random.txt'
 
 
 # Reading text from file
-with open(filename, 'r', encoding='utf8') as f:
-	s = f.read()
-print(s)
+# with open(filename, 'r', encoding='utf8') as f:
+# 	s = f.read()
+# print(s)

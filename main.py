@@ -1,5 +1,6 @@
 from book import Book
 from database import Database
+from save_load import *
 
 
 # Global variables.
@@ -44,7 +45,6 @@ def prompt_book():
 
 def show_books(books):
 	'Print a list of books in a formatted way. One book each line.'
-	assert len(books) > 0
 	id_header = 'ID'
 	name_header = 'Name'
 	author_header = 'Author'
@@ -142,9 +142,33 @@ def prompt_user_cmd():
 	elif cmd == '6':
 		show_books(database.books)
 		pass
-	elif cmd == '7':
-		pass
-	elif cmd == '8':
+	elif cmd == '7': # Save file
+		print('Save the library in a text file?\n'
+			  '1: Yes\n'
+			  '2: No')
+		savefile = input('>>> ')
+		if savefile == '1':
+			save_books('list_of_books.txt', database.books)
+		elif savefile == '2':
+			pass
+		else:
+			print('< Unknown choice, click enter to return to main menu. >\n')
+	elif cmd == '8': # Load file, print in the terminal
+		print('Load and show the books from the saved files?\n'
+			  '1: Yes\n'
+			  '2: No')
+		loadfile = input('>>> ')
+		if loadfile == '1':
+			loadbooks = load_books('list_of_books.txt')
+			database.id_counter = 0
+			database.books = []
+			for book in loadbooks:
+				database.add_book(book)
+		elif loadfile == '2':
+			pass
+		else:
+			print('< Unknown choice, click enter to return to main menu. >\n')
+
 		pass
 	elif cmd == '9':
 		pass
